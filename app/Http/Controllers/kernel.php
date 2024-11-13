@@ -14,15 +14,15 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \App\Http\Middleware\TrustProxies::class,
-    \Fruitcake\Cors\HandleCors::class,
-    \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-    \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-    \App\Http\Middleware\ConvertEmptyStringsToNull::class,
-    \Illuminate\Database\Middleware\Transactions::class,
-    \Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance::class,
-    \Illuminate\Session\Middleware\StartSession::class,
-    \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-    \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        \Fruitcake\Cors\HandleCors::class,
+        \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+        \App\Http\Middleware\ConvertEmptyStringsToNull::class,
+        \Illuminate\Database\Middleware\Transactions::class,
+        \Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
     ];
 
     /**
@@ -41,7 +41,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'auth.sanctum' => \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class, // Tambahkan ini
+
+        // Pastikan middleware berikut ini ada dan ditambahkan
+        'auth.sanctum' => EnsureFrontendRequestsAreStateful::class, // Tambahkan middleware Sanctum di sini
     ];
-    
 }
